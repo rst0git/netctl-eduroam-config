@@ -1,3 +1,5 @@
+# /etc/netctl/eduroam
+
 Description='eduroam'
 Interface=wlp3s0
 Connection=wireless
@@ -18,7 +20,7 @@ WPAConfigSection=(
         'pairwise=CCMP'
         'group=CCMP'
         'eap=PEAP'
-        'identity="<username>@abdn.ac.uk"'
+        'identity="<username>@<university domain>"'
         'anonymous_identity=""'
         'ca_cert="/usr/share/ca-certificates/trust-source/mozilla.trust.crt"'
         'password=hash:<password hash>'
