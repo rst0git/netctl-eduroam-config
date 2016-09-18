@@ -1,24 +1,28 @@
-Description='Eduroam'
-Interface=wlan0
+Description='eduroam'
+Interface=wlp3s0
 Connection=wireless
 Security=wpa-configsection
 IP=dhcp
-TimeoutWPA=10
+TimeoutWPA=5
+TimeoutUp=300
+TimeoutCarrer=300
+Priority=1
 WPAConfigSection=(
-	'ssid="eduroam"'
-	'scan_ssid=0'
-	'priority=0'
-	'mode=0'
-	'proto=RSN'
-	'key_mgmt=WPA-EAP'
-	'auth_alg=OPEN'
-	'pairwise=CCMP'
-	'group=CCMP'
-	'eap=PEAP'
-	'identity="user@example"'
-	'anonymous_identity="user@example"'
-	'ca_cert="/usr/share/ca-certificates/trust-source/mozilla.trust.crt"'
-	'password=hash:<pwd-hash>'
-	'phase1="peaplabel=0"'
-	'phase2="auth=MSCHAPv2"'
+        'ssid="eduroam"'
+        'scan_ssid=0'
+        'priority=0'
+        'mode=0'
+        'proto=RSN'
+        'key_mgmt=WPA-EAP'
+        'auth_alg=OPEN'
+        'pairwise=CCMP'
+        'group=CCMP'
+        'eap=PEAP'
+        'identity="<username>@abdn.ac.uk"'
+        'anonymous_identity=""'
+        'ca_cert="/usr/share/ca-certificates/trust-source/mozilla.trust.crt"'
+        'password=hash:<password hash>'
+# Password hashing ->  echo -n "<password>" | iconv -t utf16le | openssl md4
+        'phase1="peaplabel=0"'
+        'phase2="auth=MSCHAPv2"'
 )
