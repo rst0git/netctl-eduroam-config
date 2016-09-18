@@ -1,7 +1,22 @@
 # netctl-eduroam-config
 
-The file "eduroam" is example of netctl wireless configurations for eduroam network. It should be placed in /etc/netctl/.
-  
-Step 1. Replace 'user@example' with your university username and domain.
+The file "eduroam" is example of netctl wireless configurations for eduroam wireless network.
 
-Step 2. To prevent storing your password as plain text, generate md4 hash using the script 'eduroam-pwd-hash.sh' and replace <hash> with the resulted hash.
+It should be placed in `/etc/netctl/`.
+
+Replace : 
+
+* `<username>@<university domain>` with your university credentials
+
+* `<password hash>` with md4 hash of your password 
+- It can be obtained with 
+    `echo -n "<password>" | iconv -t utf16le | openssl md4`
+- Or using the script eduroam-pwd-hash.sh
+- **WARNING:** Your password will appear as plain text when you type it in the terminal, make sure you delete the shell history 
+
+    `history --delete --contains '| iconv -t utf16le | openssl md4'`
+
+Connect : `sudo netctl start eduroam` 
+Disconnect: `sudo netctl stop eduroam`
+
+Note: NetworkManager has conflict with netctl -> `sudo systemctl stop NetworkManager.service` 
