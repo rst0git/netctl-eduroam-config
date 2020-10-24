@@ -26,5 +26,5 @@ WPAConfigSection=(
         'password=hash:<password hash>'
 # Password hashing ->  echo -n "<password>" | iconv -t utf16le | openssl md4
         'phase1="peaplabel=0"'
-        'phase2="auth=MSCHAPv2"'
+        'phase2="auth=MSCHAPV2"'
 )
